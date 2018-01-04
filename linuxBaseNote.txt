@@ -39,11 +39,11 @@
   -----locate the binary, source, and manual page files for a command
   - b search only
   - m just find location of documentation
-12. which find the location of the command and show alias of command
-
+12. which 
+  -----shows the full path of (shell) commands
 13. find [boundary] [condition]
-  ----- exactly match
-  - wildcard * ? [] 
+  ----- search for files in a directory hierarchy
+  - wildcard 
   - name find by file name
   - iname not case sensitive
   - user find by files owner
@@ -51,54 +51,54 @@
   - atime find by access time of files
   - ctime find by change time of files
   - mtime find by modify time of files
-  - -10 less 10 days
-  - 10  equal 10 days
-  - +10 over 10 days ago
+    - -10 less 10 days
+    - 10  equal 10 days
+    - +10 greater than 10 days ago
   - size find by file size
-  - -25k less 25KB -25M less 25MB
-  - 25k  equal 25KB 25M equal 25MB
-  - +25k  over 25KB
+    - -25k less 25KB -25M less 25MB
+    - 25k  equal 25KB 25M equal 25MB
+    - +25k  greater than 25KB
   - inum  find by file inode
   - a and
   - o or
   - exec ls -lh {} \;
-14. grep [options] [str] [filename]  matches qualifying strings in the file
+14. grep [options] PATTERN [file]  
   ------ include matching
-  - i ignore case
-  - v exclude the specified string
-15. man [level] command
-  - f equivalent whatis command
-  - k equivalent apropos command
-16. help 
-  -----shell internal command
+  - i --ignore-case Ignore case distinctions in both the PATTERN and the input files 
+  - v --invert-match Invert the sense of matching, to select non-matching lines
+15. man [section_number] command
+  - f --whatis equivalent to whatis. Display a short description from the manual page
+  - k --apropos equivalent apropos. Search the short manual page descriptions for keywords and display any matches.    
+16. help
+  ----- Display helpful information about builtin commands.
   e.g. help cd
-
 17. info [command]
-  - Enter
-  - u
-  - n
-  - p
-  - q
-
-18. zip [compressed file name] [source file]
-  - r support directory
-19. unzip [compressed file name] [-d directory]
-20. gzip [source file]
-  - r compressed content of directory
-21. gunzip
-  - r unzip the content of directory
-22. bzip2 [source file]  unsupport directory
-  - k keep the source file
-23. bunzip2 -d [compressed file]
-24. tar [target name] [source name]
-  - x unpack
-  - v show detail process 
-  - f specify the packaged file name
-  - t show content
-  - c pack
-  - z compress gz
-  - j compress bz2
-  - C specify unzip directory
+  - Enter next line
+  - u     up node 
+  - n     next node
+  - p     previous node
+  - q     quit 
+*******************UNIMPORTANT*****************************
+18. zip [compressed file name] [source file]              *
+  - r support directory                                   *
+19. unzip [compressed file name] [-d directory]           *
+20. gzip [source file]                                    *
+  - r compressed content of directory                     *
+21. gunzip                                                *
+  - r unzip the content of directory                      *
+22. bzip2 [source file]  unsupport directory              *
+  - k keep the source file                                *
+23. bunzip2 -d [compressed file]                          *
+*********************END***********************************
+24. tar [archive_name] [source name]
+  - x --extract     Extract files from an archive
+  - v --verbose     Verbosely list files processed
+  - f --file=ARCHIVE    Use archive file or device ARCHIVE
+  - t --list        List the contents of an archive
+  - c --create      Create a new archive
+  - z --gzip        Filter the archive through zip
+  - j --bzip2       Filter the archive through bzip2
+  - C --directory=DIR   Change to directory DIR
 25. shutdown [option] time 
   - h poweroff halt (init 0)
   - r reboot (init 6)
@@ -114,33 +114,41 @@
   - 6 reboot
 27. logout
   ----- Log out
-28. mount [-t file_system] [-o specify option] device_name mount_point
-  - a /etc/fstab auto_mount
+28. mount -t type device dir 
+  -----The mount command serves to attach the filesystem found on some device to the big file tree.
+  dir: the pathname dir refers to the root of the filesystem on device
+  - a Mount all filesystems(of the given types) mentioned in /etc/fstab
 29. umount [mount_point]
+  -----Detaches the file system mentioned from the file hierarchy.
+  ---A file system is specified by giving the directory where it has been mounted.
 30. fdisk -l 
+  -----List the partition tables for the specified devices and then exit
 31. w
-  -----show login_user info
+  -----Show who is logged on and what they are doing
 32. who
-  -----show all login user short info
+  -----Show who is logged on 
 33. last
-  -----inquire info of logged user
-  - read /var/log/lastlog
+  -----Show listing of last logged in users
+  - read /var/log/wtmp
 34. lastlog
-  -----inquire the last login of each user
+  -----Reports the most recent login of all users or of a given user
 35. echo
+  -----Display a line of text(echo string to stdout)
   - e '\e[1;31m\e[0m'
-36. history [option] [save_file]
+36. history [option] [history_file]
   ----- default save 1000 # /etc/profile HISTSIZE=1000
   - c empty the history
   - w Write the history command in the cache to the file # ~/.bash_history
   - !n repeat execute the nth history command
   - !! repeat execute the last history command
   - !str repeat execute the last command beginning with this string
-37. wc [option] [file_name]
+37. wc [option] [FILE]
+  ----- count line word byte of FILE, with no FILE or when FILE is - , read stdin
   - c count byte of file
   - w count word of file
   - l count line of file
 38. netstate
+  -----Print network connections, routing tables, interface statistics, masquerade connections,, and multicast memberships
   - a
   - n
   - ESTABLISHED
