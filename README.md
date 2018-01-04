@@ -1,0 +1,2 @@
+# LearnNote
+For Linux Python
