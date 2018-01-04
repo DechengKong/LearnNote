@@ -1,0 +1,13 @@
+### Special symbol
+1. >    greater than
+2. <    less than
+3. -    dash
+4. /    slash
+5. \    backslash
+6. '    single quote
+7. "    quote
+8. _    underscore
+9. .    dot
+10. :   colen
+11. #   hash
+12. $   dollar
