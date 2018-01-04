@@ -1,0 +1,120 @@
+### Package Type
+1. Source Code Package
+2. Binary Package(RPM Package)
+
+### RPM Package Naming Rules
+httpd-2.2.15-15.el6.centos.1.i686.rpm
+- httpd         package name 
+- 2.2.15        package release
+- 15            release times
+- el6.centos    for platform    
+- i686          for hardware platform
+- rpm           package extension name
+- package full name     In the operation of the package, if the package is not installed, then you should use the full name of the package
+- package name          In the operation of the package, if the package has been installed, then use the package name (search /var/lib/rpm/)
+
+### RPM Package Dependency
+1. Tree dependence: a->b->c
+2. Annular dependence: a->b->c->a
+3. Module dependence: inquire site: www.rpmfind.net
+
+### RPM Install
+rpm -ivh [package full name]
+- i install 
+- v verbose
+- h hash (show progress)
+--nodeps not check dependence
+
+### RPM Upgrade
+rpm -Uvh [package full name]
+- U upgrade
+
+### RPM Uninstall(erase)
+rpm -e [package name]
+- e erase
+--nodeps not check dependence
+
+### RPM Inquire
+rpm -q [package name] # Check whether the package has been installed
+rpm -qa # Check all package has been installed
+rpm -qi [package name] # query package details
+rpm -qf [file]
+rpm -qR [package name]
+rpm -qa | grep [package_name]
+- q query
+- a all
+- i information
+- p package (Query package details not installed)
+- l same as -li # show path of installation
+- f file(Query which package the file belongs to)
+- R requires
+
+### RPM Package Verify
+rmp -V [package name]
+The meaning of the verification information
+- S     Weather the size of the file has been changed 
+- M     Weather the file type or permissions have been changed
+- 5     Weather the content of file has been changed (MD5 verify)
+- D     Has the master and slave code of the device been changed?
+- L     Weather the path of file has been changed
+- U     Weather the owner(user) of file has been changed
+- G     Weather the group of file has been changed
+- T     Weather the modify time of file has been changed
+File Type
+- c     config file
+- d     documentation
+- g     ghost file
+- L     license file
+- r     readme
+
+### File Extraction in RPM Package****
+rpm2cpio [package full name] | cpio -idv [absolute path]
+
+
+### RPM Package Default Installation Location
+- /etc/             Profile installation directory
+- /usr/bin          Executable command installation directory
+- /usr/lib          The program library used to save the location
+- /usr/share/doc/   Software manual save location
+- /usr/share/man/   Software Documentation save location
+
+
+### Yum Online Install
+1. Yum Source File
+/etc/yum.repos.d/CentOS-Base.repo
+- [base]        Name of the container
+- name          Description of the container
+- mirrorlist    Site of the mirror
+- baseurl       Url of resource server
+- enabled       enabled=0 means container is invalid; enabled=1 or nothing means container is valid
+- gpgcheck      1 means turn on digital certificate verification; 0 means turn off it
+- gpgkey        The location where the digital certificate's public key file is saved
+
+### Bulid local resource server
+step1: Mount CD
+    command:    mkdir /mnt/cdrom ; mount /dev/sr0 /mnt/cdrom/
+    command:    mkdir /mnt/my_iso ; mount ~/Download/centos.iso -o loop /mnt/my_iso/
+step2: Lost the network Yum resource
+    command:    mv /etc/yum.repos.d/CentOS-Base.repo /etc/yum.repos.d/CentOS-Base.repo.bak
+step3: Config CentOS-Media.repo
+    command:    vim /etc/yum.repos.d/CentOS-Media.repo
+                baseurl=file:///mnt/cdrom
+                # Notes invalid path
+                enabled=1
+
+### Yum Command
+1. yum list # inquire all package's list
+2. yum search [keyword] # search packages with keywords
+3. yum -y install [package_name] # -y auto confirm yes
+4. yum -y update [package_name] # upgrade package 
+5. yum -y remove [package_name] # erase package
+6. yum groplist # lists the list of available software groups
+7. yum groupinstall # install package group
+8. yum groupremove  # erase package group
+
+
+### Source Code Install
+./config
+make
+makeclean
+makeinstall
