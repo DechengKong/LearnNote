@@ -1,0 +1,11 @@
+Time: Tue Jan 2 14 14:00:57 CST 2018
+
+Project Name: Flight inquiry system
+entity: airport, airline, customer
+requirement:
+    1. Airlines provide route and aircraft information.
+    2. The airport manages Air ticket and flights taking off and landing at this airport.
+    3. Services provided to customers: 
+        a. Inquireies flights
+        b. Inquireies the remaining air tickets
+        c. Online booking 
