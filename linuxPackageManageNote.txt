@@ -112,11 +112,15 @@ step3: Config CentOS-Media.repo
 3. yum -y install [package_name] # -y auto confirm yes
 4. yum -y update [package_name] # upgrade package 
 5. yum -y remove [package_name] # erase package
-6. yum groplist # lists the list of available software groups
+6. yum grouplist # lists the list of available software groups
 7. yum groupinstall # install package group
 8. yum groupremove  # erase package group
-
-
+9. yum info
+10. yum provides
+11. yum list installed
+12. yum clean headers
+13. yum clean packages
+14. yum clean all
 ### Source Code Install
 Prepare: make clean (if the source contains the last compiled target file(*.o) )
 1. configure
