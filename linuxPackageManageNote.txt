@@ -16,9 +16,12 @@ httpd-2.2.15-15.el6.centos.1.i686.rpm
 ### RPM Package Dependency
 1. Tree dependence: a->b->c
 2. Annular dependence: a->b->c->a
-3. Module dependence: inquire site: www.rpmfind.net
+3. Function Lib dependence: inquire site: www.rpmfind.net
 
 ### RPM Install
+mount centos.iso /Packages
+mounnt -o loop centos.iso /mnt/cdrom
+umount /dev/loop0
 rpm -ivh [package full name]
 - i install 
 - v verbose
@@ -30,17 +33,18 @@ rpm -Uvh [package full name]
 - U upgrade
 
 ### RPM Uninstall(erase)
-rpm -e [package name]
+rpm -e [package_name]
 - e erase
 --nodeps not check dependence
 
 ### RPM Inquire
-rpm -q [package name] # Check whether the package has been installed
-rpm -qa # Check all package has been installed
-rpm -qi [package name] # query package details
+rpm -q [package_name] # Check whether the package has been installed
+**rpm -qa [package_name*]# Check all package has been installed
+**rpm -qi [package_name] # query package details
 rpm -qf [file]
-rpm -qR [package name]
-rpm -qa | grep [package_name]
+rpm -qR [package_name]
+**rpm -qa | grep [package_name]
+**rpm -ql [package_name] # Find the list of files written t the system by this software
 - q query
 - a all
 - i information
@@ -114,7 +118,12 @@ step3: Config CentOS-Media.repo
 
 
 ### Source Code Install
-./config
-make
-makeclean
-makeinstall
+Prepare: make clean (if the source contains the last compiled target file(*.o) )
+1. configure
+ -----Check the environment's software properties, generate the 'Makefile' file
+2. make
+ -----make compiles according to the instructions of Makefile and uses gcc to compile the source code into a target file. 
+      These target files are linked through the function library to generate a complete executable file. At this point this
+      runnable file has not been installed to the directory where it is scheduled to be installed, still under the current compilation directory.
+3. make install
+ -----Install the files compiled in the previous step into a assigned directory
