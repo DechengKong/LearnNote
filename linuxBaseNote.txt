@@ -155,9 +155,10 @@
 
 
 ### File Type
-1. directory d---------
-2. file ----------
-3. link file l---------
+e.g. drw-r--r--
+1. directory d
+2. simple file -
+3. soft link file l-
 
 ### Shortcuts
 1. Ctrl+l Clear screen
@@ -185,7 +186,8 @@
 
 
 ### General Directories
-1. /bin /sbin /usr/bin /usr/sbin 	storage system command
+1. /bin /usr/bin    storage simple user's command
+   /sbin /usr/sbin 	storage root's command
 2. /boot	directory of start system
 3. /dev		storage device files
 4. /etc		storage configure files
@@ -198,19 +200,8 @@
 11. /proc	mount point of RAM
 12. /sys	mount point of RAM
 13. /usr	storage software resources
-14. /var	documentation of system2. /boot	directory of start system
-3. /dev		storage device files
-4. /etc		storage configure files
-5. /home	home of general users
-6. /lib		storage system library files
-7. /mnt		directory of mount
-8. /media	directory of mount
-9. /root	home of root user
-10. /tmp	temporary directory
-11. /proc	mount point of RAM
-12. /sys	mount point of RAM
-13. /usr	storage software resources
 14. /var	documentation of system
+
 
 ### Shell
 config_file: /etc/shells
