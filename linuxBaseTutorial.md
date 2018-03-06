@@ -29,7 +29,7 @@
 8. mv [source_file] [target_file]
  -----move (rename) files
 9. ln [source_file] [target_link_name] 
- -----make links between files
+ -----make links between files, use abs. path
  - s --symbolic make symbolic links instead of hard links
 10. locate [pattern]
   -----find files by name   
