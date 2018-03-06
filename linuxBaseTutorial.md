@@ -28,7 +28,7 @@
  - a same as -dr --preserve=all
 8. mv [source_file] [target_file]
  -----move (rename) files
-9. ln [target_link_name] [source_file]
+9. ln [source_file] [target_link_name] 
  -----make links between files
  - s --symbolic make symbolic links instead of hard links
 10. locate [pattern]
