@@ -15,6 +15,11 @@ Syntax highlighted code block
 ## Header 2
 ### Header 3
 
+First Header | Second Header
+------------ | -------------
+apple | orange
+pear | pink
+
 - Bulleted
 - List
 
